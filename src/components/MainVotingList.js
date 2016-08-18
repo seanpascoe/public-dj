@@ -3,10 +3,25 @@ import React from 'react';
 class MainVotingList extends React.Component {
   render() {
     let songs = this.props.songs.map((song) => {
-      return (<li key={song.id}>{song.artist} - {song.song}</li>)
+      return(
+        <div key={song.id} className="row">
+        <div className="col s6 offset-s3">
+          <div className="card blue lighten-2">
+            <div className="card-content white-text">
+              <span className="card-title">{song.artist} - {song.song}</span>
+              <p>Comment: {song.comments}</p>
+            </div>
+            <div className="card-action">
+              <button className='btn'>Vote!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      )
     })
     return (
       <div>
+        <h3>Vote For Your Favorite Songs</h3>
         {songs}
       </div>
     )
