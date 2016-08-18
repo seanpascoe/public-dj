@@ -1,7 +1,6 @@
 import React from 'react'
 import SongForm from './SongForm';
 import MainVotingList from './MainVotingList';
-import PlayedSongsList from './PlayedSongsList';
 
 class PublicDjApp extends React.Component {
   constructor(props) {
@@ -25,7 +24,10 @@ class PublicDjApp extends React.Component {
 
   render() {
     return (
-      <SongForm addSongItem={this.addSongItem} />
+      <div>
+        <SongForm addSongItem={this.addSongItem} />
+        <MainVotingList songs={this.state.songs} />
+      </div>
     )
   }
 }

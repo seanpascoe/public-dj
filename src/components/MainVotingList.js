@@ -1,16 +1,13 @@
 import React from 'react';
-import SongForm from './SongForm'
 
 class MainVotingList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { }
-  }
-  
   render() {
+    let songs = this.props.songs.map((song) => {
+      return (<li key={song.id}>{song.artist} - {song.song}</li>)
+    })
     return (
       <div>
-
+        {songs}
       </div>
     )
   }
