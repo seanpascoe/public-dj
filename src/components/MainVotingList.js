@@ -13,6 +13,7 @@ class MainVotingList extends React.Component {
             </div>
             <div className="card-action">
               <button className='btn'>Vote!</button>
+              <span className="badge">{song.voteTotal}</span>
             </div>
           </div>
         </div>

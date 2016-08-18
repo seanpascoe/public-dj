@@ -10,12 +10,12 @@ class PublicDjApp extends React.Component {
     this.state = { songs:[], id:0 };
   }
 
-  addSongItem(artist, song, comments) {
+  addSongItem(artist, song, comments, voteTotal) {
     let id = ++this.state.id;
 
     this.setState({
       songs: [
-        { artist, song, comments, id },
+        { artist, song, comments, voteTotal, id },
         ...this.state.songs
       ],
       id
