@@ -9,7 +9,8 @@ class PublicDjApp extends React.Component {
     this.addSongItem = this.addSongItem.bind(this);
     this.upVoteSong = this.upVoteSong.bind(this);
     this.playedSongs = this.playedSongs.bind(this);
-    this.state = { songs:[], id:0, playedSongs: [] };
+    this.toggleSongForm = this.toggleSongForm.bind(this);
+    this.state = { songs:[], id:0, playedSongs: [], showSongForm: 'hidden' };
   }
 
   playedSongs(){
@@ -21,14 +22,10 @@ class PublicDjApp extends React.Component {
       }
       return false;
     });
-
     this.setState({ playedSongs });
-
-
   }
 
   upVoteSong(id){
-
     let songs = this.state.songs.map( (song) =>{
       if (song.id === id) {
         return {
@@ -38,7 +35,6 @@ class PublicDjApp extends React.Component {
       }
       return song;
     });
-
     this.setState({ songs });
     this.playedSongs();
   }
@@ -51,23 +47,31 @@ class PublicDjApp extends React.Component {
         { artist, song, comments, voteTotal, id },
         ...this.state.songs
       ],
-      id
+      id,
+      showSongForm: "hidden"
     });
   };
+
+  toggleSongForm() {
+    let formState = (this.state.showSongForm === 'hidden') ? 'show' : 'hidden';
+    this.setState({showSongForm: formState});
+  }
 
   render() {
     return (
       <div>
         <nav>
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo center"><i className="material-icons">cloud</i>Public Dj</a>
-            <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li><a href="sass.html">Add Song</a></li>
-              <li><a href="badges.html">Played Songs</a></li>
+            <span className="brand-logo center"><i className="material-icons">queue_music</i>Public Dj</span>
+            <ul id="nav-mobile" className="left">
+              <li><a onClick={this.toggleSongForm}><i className="material-icons">playlist_add</i></a></li>
+            </ul>
+            <ul id="nav-mobile2" className="right">
+              <li><a href="badges.html"><i className="material-icons">playlist_play</i></a></li>
             </ul>
           </div>
         </nav>
-        <SongForm addSongItem={this.addSongItem} />
+        <SongForm showSongForm={this.state.showSongForm} addSongItem={this.addSongItem} />
         <MainVotingList songs={this.state.songs} upVoteSong={this.upVoteSong} />
         <PlayedSongsList playedSongs={this.state.playedSongs} />
       </div>

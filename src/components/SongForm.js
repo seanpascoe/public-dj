@@ -18,14 +18,16 @@ class SongForm extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <form ref="songForm" onSubmit={this.addSong}>
-          <input ref="artist" placeholder="Artist..." type="text" />
-          <input ref="song" placeholder="Song..." type="text" />
-          <input ref="voteTotal" type="hidden" value="0" />
-          <textarea ref="comments" placeholder="Comments..." type="text"></textarea>
-          <button className="btn">Submit</button>
-        </form>
+      <div className={this.props.showSongForm}>
+        <div className="subSongForm container">
+          <form ref="songForm" onSubmit={this.addSong}>
+            <input ref="artist" placeholder="Artist..." type="text" />
+            <input ref="song" placeholder="Song..." type="text" />
+            <input ref="voteTotal" type="hidden" value="0" />
+            <textarea ref="comments" placeholder="Comments..." type="text"></textarea>
+            <button className="right btn">Submit</button>
+          </form>
+        </div>
       </div>
     )
   }
