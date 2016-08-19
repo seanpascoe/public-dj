@@ -1,16 +1,8 @@
 import React from 'react';
 
 class PlayedSongsList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { }
-  }
-  
-
-
-
   render() {
-    let playedSongs = this.props.playedSongs.map((song) => {
+    let Songs = this.props.playedSongs.map((song) => {
       return(
         <div key={song.id} className="row">
         <div className="col s6 offset-s3">
@@ -31,7 +23,7 @@ class PlayedSongsList extends React.Component {
     return (
       <div>
         <h3>Vote For Your Favorite playedSongs</h3>
-        {playedSongs}
+        {Songs}
       </div>
     )
   }

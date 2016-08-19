@@ -13,26 +13,24 @@ class PublicDjApp extends React.Component {
   }
 
   playedSongs(){
-  console.log('hello world');
-  let playedSongs = this.state.songs.map( (song) => {
-
-    if (song.voteTotal >= 10) {
-        console.log('even if its getting ');
-      return {
-        ...song
+    let playedSongs = this.state.songs.filter( (song) => {
+      if (song.voteTotal >= 10) {
+        return {
+          ...song
+        }
       }
-    }
+      return false;
+    });
 
-  });
+    this.setState({ playedSongs });
 
-    this.setState({ playedSongs });  
+
   }
 
   upVoteSong(id){
+
     let songs = this.state.songs.map( (song) =>{
-      console.log(id, song.id);
       if (song.id === id) {
-        console.log(song.voteTotal);
         return {
           ...song,
           voteTotal: ++song.voteTotal
@@ -55,7 +53,7 @@ class PublicDjApp extends React.Component {
       ],
       id
     });
-  }
+  };
 
   render() {
     return (
@@ -69,6 +67,3 @@ class PublicDjApp extends React.Component {
 }
 
 export default PublicDjApp;
-
-
-
