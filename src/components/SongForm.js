@@ -24,7 +24,7 @@ class SongForm extends React.Component {
             <input ref="artist" placeholder="Artist..." type="text" />
             <input ref="song" placeholder="Song..." type="text" />
             <input ref="voteTotal" type="hidden" value="0" />
-            <textarea ref="comments" placeholder="Comments..." type="text"></textarea>
+            <textarea ref="comments" className="materialize-textarea" placeholder="Comments..." type="text"></textarea>
             <button className="right btn">Submit</button>
           </form>
         </div>
