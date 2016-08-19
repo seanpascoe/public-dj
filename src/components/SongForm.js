@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 
 class SongForm extends React.Component {
@@ -32,3 +33,5 @@ class SongForm extends React.Component {
 }
 
 export default SongForm;
+=======
+>>>>>>> Brian
