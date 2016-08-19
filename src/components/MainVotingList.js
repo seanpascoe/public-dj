@@ -4,7 +4,7 @@ class MainVotingList extends React.Component {
   render() {
     let songs = this.props.songs.map((song) => {
       return(
-        <div key={song.id} className="row">
+        <div key={song.id} className="row" style={ song.voteTotal > 9 ? {display: "none"} : {} }>
         <div className="col s6 offset-s3">
           <div className="card blue lighten-2">
             <div className="card-content white-text">
