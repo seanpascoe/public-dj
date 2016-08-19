@@ -1,6 +1,10 @@
 import React from 'react';
 
 class MainVotingList extends React.Component {
+  
+
+
+
   render() {
     let songs = this.props.songs.map((song) => {
       return(
@@ -12,8 +16,9 @@ class MainVotingList extends React.Component {
               <p>Comment: {song.comments}</p>
             </div>
             <div className="card-action">
-              <button className='btn'>Vote!</button>
+              <button className='btn' onClick={() => this.props.upVoteSong(song.id)}>Vote!</button>
               <span className="badge">{song.voteTotal}</span>
+              <span className="id"> {song.id} </span>
             </div>
           </div>
         </div>
