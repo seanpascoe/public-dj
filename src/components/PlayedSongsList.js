@@ -22,7 +22,7 @@ class PlayedSongsList extends React.Component {
     })
     return (
       <div>
-        <h3>Vote For Your Favorite playedSongs</h3>
+        <h3>Played Songs</h3>
         {Songs}
       </div>
     )

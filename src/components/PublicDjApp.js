@@ -58,6 +58,15 @@ class PublicDjApp extends React.Component {
   render() {
     return (
       <div>
+        <nav>
+          <div className="nav-wrapper">
+            <a href="#" className="brand-logo center"><i className="material-icons">cloud</i>Public Dj</a>
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
+              <li><a href="sass.html">Add Song</a></li>
+              <li><a href="badges.html">Played Songs</a></li>
+            </ul>
+          </div>
+        </nav>
         <SongForm addSongItem={this.addSongItem} />
         <MainVotingList songs={this.state.songs} upVoteSong={this.upVoteSong} />
         <PlayedSongsList playedSongs={this.state.playedSongs} />
