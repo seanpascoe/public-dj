@@ -8,33 +8,34 @@ class PublicDjApp extends React.Component {
     super(props)
     this.addSongItem = this.addSongItem.bind(this);
     this.upVoteSong = this.upVoteSong.bind(this);
+    this.playSong = this.playSong.bind(this);
     this.filterPlayedSongs = this.filterPlayedSongs.bind(this);
     this.toggleSongForm = this.toggleSongForm.bind(this);
     this.togglePlayedSongs = this.togglePlayedSongs.bind(this);
     this.state = { songs:[{artist: "Gogol Bordello", song: "Mishto!", comments: "awwww yea!", voteTotal: 5, id: 88, played: false}, {artist: "MF Doom", song: "Doomsday", comments: "asco, jascoe!", voteTotal: 2, id: 89, played: false},
-  {artist: "J.J. Cale", song: "Mama Don't", comments: "bla bla!", voteTotal: 7, id: 85, played: false}], id:0, playedSongs: [], sortedSongs: [], showSongForm: 'hidden', showPlayedSongs: "hidden", showMainList: "show" };
+  {artist: "J.J. Cale", song: "Mama Don't", comments: "bla bla!", voteTotal: 7, id: 85, played: false}], id:0, playedSongs: [], showSongForm: 'hidden', showPlayedSongs: "hidden", showMainList: "show" };
   }
 
-  filterPlayedSongs() {
-    let playedSongs = this.state.songs.filter( (song) => {
-      if (song.voteTotal >= 10) {
+  filterPlayedSongs(songArray) {
+    let playedSongs = songArray.filter( (song) => {
+      return song.played === true;
+    });
+    console.log(playedSongs);
+    return playedSongs;
+  }
+
+  playSong(id) {
+    let songs = this.state.songs.map((song) => {
+      if (song.id === id) {
         return {
-          ...song
+          ...song,
+          played: true
         }
       }
-      return false;
+      return song;
     });
-    this.setState({ playedSongs });
+    this.setState({ songs });
   }
-
-  // sortSongs() {
-  //   let sortedSongs = this.state.songs.sort(function(a, b) {
-  //     return b.voteTotal - a.voteTotal;
-  //   });
-  //
-  //   this.setState({ sortedSongs });
-  //   console.log(sortedSongs);
-  // }
 
   sortSongs(songArray) {
     let sortedSongs = songArray.sort(function(a, b) {
@@ -44,7 +45,7 @@ class PublicDjApp extends React.Component {
   }
 
   upVoteSong(id) {
-    let songs = this.state.songs.map( (song) =>{
+    let songs = this.state.songs.map((song) => {
       if (song.id === id) {
         return {
           ...song,
@@ -54,8 +55,6 @@ class PublicDjApp extends React.Component {
       return song;
     });
     this.setState({ songs });
-    this.filterPlayedSongs();
-    // this.sortSongs();
   }
 
   addSongItem(artist, song, comments, voteTotal) {
@@ -96,9 +95,15 @@ class PublicDjApp extends React.Component {
             </ul>
           </div>
         </nav>
-        <SongForm showSongForm={this.state.showSongForm} addSongItem={this.addSongItem} />
-        <MainVotingList showMainList={this.state.showMainList} songs={this.sortSongs(this.state.songs)} upVoteSong={this.upVoteSong} />
-        <PlayedSongsList showPlayedSongs={this.state.showPlayedSongs} playedSongs={this.state.playedSongs} />
+        <SongForm
+          showSongForm={this.state.showSongForm}
+          addSongItem={this.addSongItem} />
+        <MainVotingList
+          showMainList={this.state.showMainList} songs={this.sortSongs(this.state.songs)}
+          upVoteSong={this.upVoteSong}
+          playSong={this.playSong} />
+        <PlayedSongsList
+          showPlayedSongs={this.state.showPlayedSongs} playedSongs={this.filterPlayedSongs(this.state.songs)} />
       </div>
     )
   }

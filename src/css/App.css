@@ -14,12 +14,17 @@ body {
   color: white;
 }
 
-.upvote-icon {
+.upvote-icon,
+.play-icon {
   cursor: pointer;
 }
 
 .upvote-icon:hover {
   color: #4fc3f7;
+}
+
+.play-icon:hover {
+  color: #4caf50;
 }
 
 .song-list .song-item {
@@ -36,9 +41,11 @@ body {
   font-size: 1.5rem;
 }
 
-.song-list .song-item .upvote-icon {
+.song-list .song-item .upvote-icon,
+.song-list .song-item .play-icon {
   font-size: 3rem;
   line-height: 2rem;
+  margin-left: 2px;
 }
 
 .song-item .comments {
