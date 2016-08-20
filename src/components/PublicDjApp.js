@@ -10,7 +10,7 @@ class PublicDjApp extends React.Component {
     this.upVoteSong = this.upVoteSong.bind(this);
     this.playedSongs = this.playedSongs.bind(this);
     this.toggleSongForm = this.toggleSongForm.bind(this);
-    this.state = { songs:[{artist: "Joe Walsh", song: "I like Big Tits", comments: "me too, joe!", voteTotal: 5, id: 88}, {artist: "Larry Johnson", song: "Hey dude , jhkv kjhb kjhb kjhb kjhb kjh kjh khg", comments: "asco, jascoe!", voteTotal: 2, id: 89},
+    this.state = { songs:[{artist: "Joe Walsh", song: "adlkjadv lkjh lkjh", comments: "me too, joe!", voteTotal: 5, id: 88}, {artist: "Larry Johnson", song: "Hey dude , jhkv kjhb kjhb kjhb kjhb kjh kjh khg", comments: "asco, jascoe!", voteTotal: 2, id: 89},
   {artist: "Fronky", song: "Horses", comments: "bla bla!", voteTotal: 7, id: 85}], id:0, playedSongs: [], showSongForm: 'hidden' };
   }
 
