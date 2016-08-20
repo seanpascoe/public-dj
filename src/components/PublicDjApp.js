@@ -11,8 +11,8 @@ class PublicDjApp extends React.Component {
     this.playedSongs = this.playedSongs.bind(this);
     this.toggleSongForm = this.toggleSongForm.bind(this);
     this.togglePlayedSongs = this.togglePlayedSongs.bind(this);
-    this.state = { songs:[{artist: "Joe Walsh", song: "adlkjadv lkjh lkjh", comments: "me too, joe!", voteTotal: 5, id: 88}, {artist: "Larry Johnson", song: "Hey dude , jhkv kjhb kjhb kjhb kjhb kjh kjh khg", comments: "asco, jascoe!", voteTotal: 2, id: 89},
-  {artist: "Fronky", song: "Horses", comments: "bla bla!", voteTotal: 7, id: 85}], id:0, playedSongs: [], showSongForm: 'hidden', showPlayedSongs: "hidden", showMainList: "show" };
+    this.state = { songs:[{artist: "Gogol Bordello", song: "Mishto!", comments: "awwww yea!", voteTotal: 5, id: 88}, {artist: "MF Doom", song: "Doomsday", comments: "asco, jascoe!", voteTotal: 2, id: 89},
+  {artist: "J.J. Cale", song: "Mama Don't", comments: "bla bla!", voteTotal: 7, id: 85}], id:0, playedSongs: [], showSongForm: 'hidden', showPlayedSongs: "hidden", showMainList: "show" };
   }
 
   playedSongs(){
@@ -72,10 +72,10 @@ class PublicDjApp extends React.Component {
           <div className="nav-wrapper orange darken-2">
             <span className="brand-logo center"><i className="material-icons">queue_music</i>Public Dj</span>
             <ul id="nav-mobile" className="left">
-              <li><a onClick={this.toggleSongForm}><i className="material-icons">playlist_add</i></a></li>
+              <li><a onClick={this.toggleSongForm}><i className="material-icons">{(this.state.showSongForm === "show") ? "close" : "playlist_add"}</i></a></li>
             </ul>
             <ul id="nav-mobile2" className="right">
-              <li><a onClick={this.togglePlayedSongs}><i className="material-icons">playlist_play</i></a></li>
+              <li><a onClick={this.togglePlayedSongs}><i className="material-icons">{(this.state.showMainList === "show") ? "playlist_play" : "toc"}</i></a></li>
             </ul>
           </div>
         </nav>
