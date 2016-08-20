@@ -11,8 +11,8 @@ class PublicDjApp extends React.Component {
     this.filterPlayedSongs = this.filterPlayedSongs.bind(this);
     this.toggleSongForm = this.toggleSongForm.bind(this);
     this.togglePlayedSongs = this.togglePlayedSongs.bind(this);
-    this.state = { songs:[{artist: "Gogol Bordello", song: "Mishto!", comments: "awwww yea!", voteTotal: 5, id: 88}, {artist: "MF Doom", song: "Doomsday", comments: "asco, jascoe!", voteTotal: 2, id: 89},
-  {artist: "J.J. Cale", song: "Mama Don't", comments: "bla bla!", voteTotal: 7, id: 85}], id:0, playedSongs: [], sortedSongs: [], showSongForm: 'hidden', showPlayedSongs: "hidden", showMainList: "show" };
+    this.state = { songs:[{artist: "Gogol Bordello", song: "Mishto!", comments: "awwww yea!", voteTotal: 5, id: 88, played: false}, {artist: "MF Doom", song: "Doomsday", comments: "asco, jascoe!", voteTotal: 2, id: 89, played: false},
+  {artist: "J.J. Cale", song: "Mama Don't", comments: "bla bla!", voteTotal: 7, id: 85, played: false}], id:0, playedSongs: [], sortedSongs: [], showSongForm: 'hidden', showPlayedSongs: "hidden", showMainList: "show" };
   }
 
   filterPlayedSongs() {
@@ -63,7 +63,7 @@ class PublicDjApp extends React.Component {
 
     this.setState({
       songs: [
-        { artist, song, comments, voteTotal, id },
+        { artist, song, comments, voteTotal, id, played: false},
         ...this.state.songs
       ],
       id,

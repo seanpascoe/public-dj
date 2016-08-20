@@ -4,7 +4,7 @@ class PlayedSongsList extends React.Component {
   render() {
     let playedSongs = this.props.playedSongs.map((song) => {
       return(
-        <div key={song.id + 100} className="row song-item-complete valign-wrapper">
+        <div key={song.id + 10000} className="row song-item-complete valign-wrapper">
           <div className="song-details-complete col s9 m10 l8 valign">
             <div className="thin">{song.artist} - {song.song}</div>
             <span className="comments">Comment: {song.comments}</span>
@@ -18,7 +18,7 @@ class PlayedSongsList extends React.Component {
     return (
       <div className={this.props.showPlayedSongs}>
         <div className="song-list">
-          {(playedSongs.length > 0) ? playedSongs : "...no played songs"}
+          {(playedSongs.length > 0) ? playedSongs.reverse() : "...no played songs"}
         </div>
       </div>
     )
