@@ -10,8 +10,9 @@ class PublicDjApp extends React.Component {
     this.upVoteSong = this.upVoteSong.bind(this);
     this.playedSongs = this.playedSongs.bind(this);
     this.toggleSongForm = this.toggleSongForm.bind(this);
+    this.togglePlayedSongs = this.togglePlayedSongs.bind(this);
     this.state = { songs:[{artist: "Joe Walsh", song: "adlkjadv lkjh lkjh", comments: "me too, joe!", voteTotal: 5, id: 88}, {artist: "Larry Johnson", song: "Hey dude , jhkv kjhb kjhb kjhb kjhb kjh kjh khg", comments: "asco, jascoe!", voteTotal: 2, id: 89},
-  {artist: "Fronky", song: "Horses", comments: "bla bla!", voteTotal: 7, id: 85}], id:0, playedSongs: [], showSongForm: 'hidden' };
+  {artist: "Fronky", song: "Horses", comments: "bla bla!", voteTotal: 7, id: 85}], id:0, playedSongs: [], showSongForm: 'hidden', showPlayedSongs: "hidden", showMainList: "show" };
   }
 
   playedSongs(){
@@ -58,6 +59,12 @@ class PublicDjApp extends React.Component {
     this.setState({showSongForm: formState});
   }
 
+  togglePlayedSongs() {
+    let playedListState = (this.state.showPlayedSongs === 'hidden') ? 'show' : 'hidden';
+    let mainListState = (this.state.showMainList === 'show') ? 'hidden' : 'show';
+    this.setState({showPlayedSongs: playedListState, showMainList: mainListState});
+  }
+
   render() {
     return (
       <div>
@@ -68,13 +75,13 @@ class PublicDjApp extends React.Component {
               <li><a onClick={this.toggleSongForm}><i className="material-icons">playlist_add</i></a></li>
             </ul>
             <ul id="nav-mobile2" className="right">
-              <li><a href="badges.html"><i className="material-icons">playlist_play</i></a></li>
+              <li><a onClick={this.togglePlayedSongs}><i className="material-icons">playlist_play</i></a></li>
             </ul>
           </div>
         </nav>
         <SongForm showSongForm={this.state.showSongForm} addSongItem={this.addSongItem} />
-        <MainVotingList songs={this.state.songs} upVoteSong={this.upVoteSong} />
-        <PlayedSongsList playedSongs={this.state.playedSongs} />
+        <MainVotingList showMainList={this.state.showMainList} songs={this.state.songs} upVoteSong={this.upVoteSong} />
+        <PlayedSongsList showPlayedSongs={this.state.showPlayedSongs} playedSongs={this.state.playedSongs} />
       </div>
     )
   }

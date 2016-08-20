@@ -17,8 +17,10 @@ class MainVotingList extends React.Component {
       )
     });
     return (
-      <div className="song-list">
-        {songs}
+      <div className={this.props.showMainList}>
+        <div className="song-list">
+          {songs}
+        </div>
       </div>
     )
   }

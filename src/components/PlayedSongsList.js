@@ -2,28 +2,24 @@ import React from 'react';
 
 class PlayedSongsList extends React.Component {
   render() {
-    let Songs = this.props.playedSongs.map((song) => {
+    let playedSongs = this.props.playedSongs.map((song) => {
       return(
-        <div key={song.id} className="row">
-        <div className="col s6 offset-s3">
-          <div className="card green lighten-2">
-            <div className="card-content white-text">
-              <span className="card-title">{song.artist} - {song.song}</span>
-              <p>Comment: {song.comments}</p>
-            </div>
-            <div className="card-action">
-              <span className="badge">{song.voteTotal}</span>
-              <span className="id"> {song.id} </span>
-            </div>
+        <div key={song.id + 100} className="row song-item-complete valign-wrapper">
+          <div className="song-details-complete col s9 m10 l8 valign">
+            <div className="thin">{song.artist} - {song.song}</div>
+            <span className="comments">Comment: {song.comments}</span>
+          </div>
+          <div className="upvote col s3 m2 pull-l1 valign">
+              <div className="vote-total right">{song.voteTotal}</div>
           </div>
         </div>
-      </div>
       )
     })
     return (
-      <div>
-        <h3>Played Songs</h3>
-        {Songs}
+      <div className={this.props.showPlayedSongs}>
+        <div className="song-list">
+          {playedSongs}
+        </div>
       </div>
     )
   }
