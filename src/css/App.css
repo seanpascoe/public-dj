@@ -43,7 +43,7 @@ body {
 
 .song-list .song-item .upvote-icon,
 .song-list .song-item .play-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 2rem;
   margin-left: 2px;
 }
@@ -61,7 +61,7 @@ body {
 }
 
 .vote-total {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .song-details-complete {

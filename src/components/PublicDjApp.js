@@ -17,10 +17,7 @@ class PublicDjApp extends React.Component {
   }
 
   filterPlayedSongs(songArray) {
-    let playedSongs = songArray.filter( (song) => {
-      return song.played === true;
-    });
-    console.log(playedSongs);
+    let playedSongs = songArray.filter(song => song.played === true);
     return playedSongs;
   }
 
@@ -38,9 +35,7 @@ class PublicDjApp extends React.Component {
   }
 
   sortSongs(songArray) {
-    let sortedSongs = songArray.sort(function(a, b) {
-      return b.voteTotal - a.voteTotal;
-    });
+    let sortedSongs = songArray.sort((a, b) => b.voteTotal - a.voteTotal);
     return sortedSongs;
   }
 
@@ -57,12 +52,12 @@ class PublicDjApp extends React.Component {
     this.setState({ songs });
   }
 
-  addSongItem(artist, song, comments, voteTotal) {
+  addSongItem(artist, song, comments) {
     let id = ++this.state.id;
 
     this.setState({
       songs: [
-        { artist, song, comments, voteTotal, id, played: false},
+        { artist, song, comments, voteTotal: 0, id, played: false},
         ...this.state.songs
       ],
       id,
