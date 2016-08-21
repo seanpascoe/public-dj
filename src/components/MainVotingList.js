@@ -4,20 +4,48 @@ class MainVotingList extends React.Component {
   render() {
     let songs = this.props.songs.map((song) => {
       return(
-        <div key={song.id} className="row" style={ song.voteTotal > 9 ? {display: "none"} : {} }>
-        <div className="col s6 offset-s3">
-          <div className="card blue lighten-2">
-            <div className="card-content white-text">
-              <span className="card-title">{song.artist} - {song.song}</span>
-              <p>Comment: {song.comments}</p>
-            </div>
-            <div className="card-action">
-              <button className='btn' onClick={() => this.props.upVoteSong(song.id)}>Vote!</button>
-              <span className="badge">{song.voteTotal}</span>
-              <span className="id"> {song.id} </span>
-            </div>
-          </div>
-        </div>
+        <div key={song.id} className="container" style={ song.voteTotal > 9 ? {display: "none"} : {} }>
+          <table className="striped responsive-table">
+            <thead>
+              <tr>
+                <div className="row">
+                  <div className="col s3">
+                    <th data-field="song_id" className="id">ID</th>
+                  </div>
+                  <div className="col s3">
+                    <th data-field="id" className="badge">Rating</th>
+                  </div>
+                  <div className="col s3">
+                    <th data-field="name">Song Name</th>
+                  </div>
+                  <div className="col s3">
+                    <th data-field="price">Artist</th>
+                  </div>
+                </div>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <div className="row">
+                  <div className="col s3">
+                    <td><span className="id"> {song.id} </span></td>
+                  </div>
+                  <div className="col s3">
+                    <td>
+                      <button className='btn' onClick={() => this.props.upVoteSong(song.id)}>{song.voteTotal} +</button>
+                    </td>
+                  </div>
+                  <div className="col s3">
+                    <td>{song.song}</td>
+                  </div>
+                  <div className="col s3">
+                    <td>{song.artist}</td>
+                  </div>
+                </div>
+              </tr>
+            </tbody>
+          </table>
       </div>
       )
     })
@@ -31,3 +59,4 @@ class MainVotingList extends React.Component {
 }
 
 export default MainVotingList;
+
