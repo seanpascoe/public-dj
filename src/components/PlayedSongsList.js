@@ -18,7 +18,7 @@ class PlayedSongsList extends React.Component {
     return (
       <div className={this.props.showPlayedSongs}>
         <div className="song-list">
-          {(playedSongs.length > 0) ? playedSongs.reverse() : "...no played songs"}
+          {(playedSongs.length > 0) ? playedSongs : "...no played songs"}
         </div>
       </div>
     )

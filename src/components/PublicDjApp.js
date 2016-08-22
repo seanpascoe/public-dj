@@ -22,11 +22,13 @@ class PublicDjApp extends React.Component {
   }
 
   playSong(id) {
+    let now = Date.now();
     let songs = this.state.songs.map((song) => {
       if (song.id === id) {
         return {
           ...song,
-          played: true
+          played: true,
+          timePlayed: now
         }
       }
       return song;
@@ -34,8 +36,10 @@ class PublicDjApp extends React.Component {
     this.setState({ songs });
   }
 
-  sortSongs(songArray) {
-    let sortedSongs = songArray.sort((a, b) => b.voteTotal - a.voteTotal);
+  sortSongs(songArray, objKey) {
+    let sortedSongs = songArray.sort(function(a, b){
+      return b[objKey] - a[objKey];
+    });
     return sortedSongs;
   }
 
@@ -94,11 +98,11 @@ class PublicDjApp extends React.Component {
           showSongForm={this.state.showSongForm}
           addSongItem={this.addSongItem} />
         <MainVotingList
-          showMainList={this.state.showMainList} songs={this.sortSongs(this.state.songs)}
+          showMainList={this.state.showMainList} songs={this.sortSongs(this.state.songs, "voteTotal")}
           upVoteSong={this.upVoteSong}
           playSong={this.playSong} />
         <PlayedSongsList
-          showPlayedSongs={this.state.showPlayedSongs} playedSongs={this.filterPlayedSongs(this.state.songs)} />
+          showPlayedSongs={this.state.showPlayedSongs} playedSongs={this.sortSongs(this.filterPlayedSongs(this.state.songs), "timePlayed")} />
       </div>
     )
   }
