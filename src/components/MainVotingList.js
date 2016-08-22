@@ -6,9 +6,9 @@ class MainVotingList extends React.Component {
       return(
         <div key={song.id} className="container" style={ song.voteTotal > 9 ? {display: "none"} : {} }>
           <table className="striped responsive-table">
-            <thead>
+            <thead className="row">
               <tr>
-                <div className="row">
+                <div className="col s12">
                   <div className="col s3">
                     <th data-field="song_id" className="id">ID</th>
                   </div>
@@ -25,9 +25,9 @@ class MainVotingList extends React.Component {
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="row">
               <tr>
-                <div className="row">
+                <div className="col s12">
                   <div className="col s3">
                     <td><span className="id"> {song.id} </span></td>
                   </div>
