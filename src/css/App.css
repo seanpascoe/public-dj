@@ -91,10 +91,6 @@ body {
   -ms-user-select: none;
 }
 
-/*.song-details-complete .song-played {
-  text-decoration: line-through;
-}*/
-
 .song-details-complete .time-played {
   font-size: .8em;
   display: inline-block;

@@ -12,7 +12,7 @@ class PlayedSongsList extends React.Component {
             <span className="thin time-played">Played: {playTime}</span>
           </div>
           <div className="upvote col s1 m1 pull-l1 valign">
-              <div className="vote-total right">{song.voteTotal}</div>
+            <div className="vote-total right">{song.voteTotal}</div>
           </div>
         </div>
       )
