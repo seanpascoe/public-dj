@@ -87,3 +87,10 @@ body {
 .song-item-complete .comments {
   display: none;
 }
+
+.upvote-icon {
+  -webkit-user-select: none; 
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
