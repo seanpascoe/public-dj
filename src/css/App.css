@@ -64,10 +64,6 @@ body {
   margin-right: 5px;
 }
 
-.song-details-complete {
-  text-decoration: line-through;
-}
-
 .song-list .song-item-complete {
   background-color: #302020;
   color: #f5f5f5;
@@ -89,8 +85,20 @@ body {
 }
 
 .upvote-icon {
-  -webkit-user-select: none; 
+  -webkit-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
   -ms-user-select: none;
+}
+
+/*.song-details-complete .song-played {
+  text-decoration: line-through;
+}*/
+
+.song-details-complete .time-played {
+  font-size: .8em;
+  display: inline-block;
+  font-style: italic;
+  color: #bdbdbd;
+  margin-left: 25px;
 }

@@ -23,6 +23,8 @@ class PublicDjApp extends React.Component {
 
   playSong(id) {
     let now = Date.now();
+    let today = new Date(now);
+    console.log(`Played at: ${today.toLocaleTimeString()}`);
     let songs = this.state.songs.map((song) => {
       if (song.id === id) {
         return {
@@ -33,11 +35,12 @@ class PublicDjApp extends React.Component {
       }
       return song;
     });
+
     this.setState({ songs });
   }
 
   sortSongs(songArray, objKey) {
-    let sortedSongs = songArray.sort(function(a, b){
+    let sortedSongs = songArray.sort((a, b) => {
       return b[objKey] - a[objKey];
     });
     return sortedSongs;
